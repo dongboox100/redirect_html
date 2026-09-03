@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Redirect</title>
+</head>
+<body>
+    <script>
+        (function() {
+            // Ambil parameter dari URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const encodedUrl = urlParams.get('v');
+
+            if (encodedUrl) {
+                // Decode URL
+                const targetUrl = decodeURIComponent(encodedUrl);
+                // Redirect ke target
+                window.location.href = targetUrl;
+            } else {
+                // Jika tidak ada parameter v, redirect ke default atau tampilkan pesan
+                // Optional: redirect ke halaman lain atau tampilkan pesan
+                document.write('Parameter "v" tidak ditemukan!');
+            }
+        })();
+    </script>
+</body>
+</html>
