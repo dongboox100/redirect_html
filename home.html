@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Video</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #82b1ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px 35px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            font-size: 34px;
+            font-weight: 700;
+            color: #1a2a4a;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .sub {
+            color: #2a4a7a;
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .video-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .video-item {
+            background: #f0f7ff;
+            border: 2px solid #c5dfff;
+            border-radius: 16px;
+            padding: 20px 24px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .video-item:hover {
+            background: #ffffff;
+            border-color: #4a8aff;
+            transform: translateX(8px);
+            box-shadow: 0 4px 20px rgba(74, 138, 255, 0.2);
+        }
+
+        .video-item .title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a2a4a;
+            margin-bottom: 4px;
+        }
+
+        .video-item .url {
+            font-size: 16px;
+            color: #4a7aaa;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+        }
+
+        .video-item .badge {
+            display: inline-block;
+            background: #4a8aff;
+            color: #ffffff;
+            font-size: 12px;
+            padding: 3px 14px;
+            border-radius: 20px;
+            margin-top: 8px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .video-item:hover .badge {
+            background: #1a5adf;
+        }
+
+        .video-item .icon {
+            font-size: 20px;
+            margin-right: 0;
+            display: inline-block;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 24px 18px;
+            }
+            h1 {
+                font-size: 26px;
+            }
+            .video-item .title {
+                font-size: 20px;
+            }
+            .video-item .url {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Pilih Web b0kep di bawah ini</h1>
+        <p class="sub">Klik salah satu web di bawah untuk menonton video</p>
+
+        <div class="video-list" id="videoList"></div>
+    </div>
+
+    <script>
+        const videos = [
+            { name: 'Bokep Indo 1', url: 'https://stw.bosindo.my.id' },
+            { name: 'Bokep Indo 2', url: 'https://meli.bosindo.my.id' },
+            { name: 'Bokep Indo 3', url: 'https://cindo.bosindo.my.id' },
+            { name: 'Bokep Indo 4', url: 'https://jaksel.bosindo.my.id' },
+            { name: 'Bokep Indo 5', url: 'https://udin.bosindo.my.id' },
+            { name: 'Bokep Indo 6', url: 'https://play21.bosindo.my.id/' },
+            { name: 'Bokep Indo 7', url: 'https://orangkaya.bosindo.my.id' },
+            { name: 'Bokep Indo 8', url: 'https://anto.bosindo.my.id' },
+            { name: 'Bokep Indo 9', url: 'https://cinema.bosindo.my.id' },
+            { name: 'Bokep Indo 10', url: 'https://toge.bosindo.my.id' },
+            { name: 'Bokep Indo 11', url: 'https://jaka.bosindo.my.id' },
+            { name: 'Bokep Indo 12', url: 'https://pargoi.bosindo.my.id' },
+            { name: 'Bokep Indo 13', url: 'https://jepang.bosindo.my.id' },
+            { name: 'Bokep Indo 14', url: 'https://bule.bosindo.my.id/' },
+            { name: 'Bokep Indo 15', url: 'https://bimo.bosindo.my.id/' },
+            { name: 'Bokep Indo 16', url: 'https://vip.bosindo.my.id/' },
+            { name: 'Bokep Jepang 1', url: 'https://japan.bosindo.my.id/' },
+            { name: 'Bokep Jepang 2', url: 'https://jepang.bosindo.my.id/' }
+        ];
+
+        const list = document.getElementById('videoList');
+        let html = '';
+
+        videos.forEach(video => {
+            html += `
+                <a href="${video.url}" target="_blank" class="video-item">
+                    <div class="title">▶️ ${video.name}</div>
+                    <div class="url">${video.url}</div>
+                    <span class="badge">↗ Buka Tab Baru</span>
+                </a>
+            `;
+        });
+
+        list.innerHTML = html;
+    </script>
+</body>
+</html>
