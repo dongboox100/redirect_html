@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <title>Redirect</title>
 </head>
 <body>
     <script>
         (function() {
-            // Cek parameter v di URL
             const urlParams = new URLSearchParams(window.location.search);
-            const encodedUrl = urlParams.get('v');
+            const paramD = urlParams.get('d');
+            const paramId = urlParams.get('id');
 
-            if (encodedUrl) {
-                // Jika ada parameter v, redirect langsung ke URL tujuan
-                const targetUrl = decodeURIComponent(encodedUrl);
-                window.location.href = targetUrl;
+            if (paramD && paramId) {
+                const targetUrl = `https://${paramD}.bosindo.my.id/?id=${paramId}`;
+                window.location.replace(targetUrl);
             } else {
-                // Jika tidak ada parameter v, redirect ke home.html
-                window.location.href = 'home.html';
+                window.location.replace('home.html');
             }
         })();
     </script>
